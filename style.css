@@ -1,96 +1,313 @@
 
-body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 20;
-    padding: 0;
-    background-color: #112d38 ;
+*{
+    margin: 0;
+    padding: 4px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+
+body{
+    display: flex;
+    height: 300vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #388cc4, #812ba3);
+}
+#resumeForm{
+    max-width: 800px;
+    margin:auto;
+    align-items: center;
+    width: 100%;
+    background: #71b7e6;
+    padding: 25px, 30px;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px #452275;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(45deg, #8e44ad, #452275) 1;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+    animation: fadeIn 1s ease-in-out;
+}
+#resumeForm .title{
+    font-size: 22px;
+    margin-top: 10px;
+    font-weight: 800;
+    height: 60px;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 70px;
+    background: linear-gradient(to right, #0e6096, #9c4ad2);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: linear-gradient(135deg, #71b7e6, #9b59b6) ;
+   
+}
+form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 6px;
+    width: 40%;
+    padding-left:480px;
+    background: linear-gradient(135deg, #45a6e7, #9b59b6);
+}
+form .title:hover{
+    background: linear-gradient(-135deg, #208dd5, #913cb2);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: linear-gradient(135deg, #71b7e6, #8b2db1) ;
+    font-weight: 1000;
+}
+::placeholder {
+    color: #371683; 
+}
+
+
+fieldset {
+    border: 2px solid #8e44ad;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #96c8ea, #daa7ed);
+    box-shadow: 0 10px 20px #812ca3;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  }
+  fieldset:hover {
+    border-color: #502a9d;
+    box-shadow: 0 15px 30px #daa7ed;
+    transform: translateY(-5px);
+  }
+  
+  legend {
+    font-size: 1.5rem;
+    border-color: #452275;
+    color:#fff;
+    background: linear-gradient(145deg, #3e9cdb, #ad6dbb);
+    padding: 5px 10px;
+    border-radius: 14px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  legend:hover {
+    background: linear-gradient(145deg, #daa7ed, #452275);
+    box-shadow: 0 8px 15px #3e9cdb;
+  }
+  
+
+ form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+form .user-details .input-box{
+    margin-bottom: 5px;
+    width: calc(100% / 2 - 20px);
+}
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+
+}
+
+.user-profile{
+    height: 30px;
+    width: 100%;
+    outline: none;
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: 410;
+  
+}
 .profilePicture {
     display: block;
     margin: 0 auto;
-    border: 2px solid #022d3e;
-    box-shadow: 0 4px 8px rgba(16, 77, 82, 0.5);
+    border: 2px solid #0e6096;
+    box-shadow: 0 4px 8px #9b59b6;
     border-radius: 500%;
     width: 150px;
     height: 150px;
     object-fit: cover;
 }
 
-h2 {
-    text-align: center;
-    color: whitesmoke;
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #9b59b6;
 }
-
-form {
-    max-width:  600px;
-    margin:auto;
-    background-color: rgb(248, 254, 254);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding: 20px;
+form .gender-details .gender-title{
+    font-size: 20px;
+    font-weight: 500;
 }
-
-fieldset {
-    border:2px solid #256b87
-}
-
-legend {
-    font-weight: bold;
-    color: #31718b;
-    text-align: left;
-
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    color: #31718b;
-}
-
-input, textarea {
-    width: calc(100% - 1px);
-    padding: 8px;
-    margin-top: 4px;
-    border: 1px solid #3498bd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: border-color 0.3s,ox-shadow 0.3s;
-    color: gray;
-}
-
-button {
-    margin-top: 10px;
-    display: block;
+form .gender-details .category{
+    display: flex;
+    margin: 14px, 0;
     width: 100%;
-    padding: 10px;
-    background-color:  #256b87;
-    border: none;
-    border-radius: 4px;
-    font-size: 18px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: whitesmoke;
+    justify-content: space-between;
+
+}
+.gender-details .category label{
+    display: flex;
+    align-items: center;
+
+}
+.gender-details .category .dot{
+    height: 18px;
+    width:18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+    border-color: #d9d9d9;
+    background: #9b59b6;
+
+}
+form input[type="radio"]{
+    display:none;
+}
+
+input #education,
+input #experience,
+input #skills,
+textarea {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  color: #dcdcdc;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+input #education,
+input #experience,
+input #skills,
+textarea:focus,
+input #education,
+input #experience,
+input #skills,
+textarea :valid{
+    border-color: #9b59b6;
+}
+
+.input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+form .button{
+    height: 60px;
+    margin: 30px 0;
+    padding-left: 210px;
+}
+
+form .button button{
+    height: 100%;
+    width: 70%;
+    display: block;
+    outline: none;
+    color: #fff;
     cursor: pointer;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+form .button button:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     
 }
-
-button:hover {
-    background-color: #3498bd ;
-}
-
 #resumeGenerate {
-    max-width: 600px;
+    max-width: 800px;
     margin: auto;
+    margin-top: 190%;
+    position: absolute;
     padding: 20px;
-    border: 2px solid  #31718b;
+    border: 3px solid #0992ee;
     border-radius: 8px;
-    margin:auto;
-    background-color:rgb(248, 254, 254) ; 
-    box-shadow: 0 4px 8px rgba(20, 59, 84, 0.5);
+    background-color: linear-gradient(135deg, #71b7e6 #a369ba); 
+    box-shadow: 0 4px 8px 6, #6737ab;
 
 }
 
 
 #resumeGenerate h2 {
-    color: #112d38;
+    text-align: center;
+    padding-left:auto;
+    background: linear-gradient(to right, #0e6096, #7d2eb2);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: linear-gradient(135deg, #096aab, #731498) ;
+   
+
+  
+   
 }
+
+#resumeGenerate p strong{
+    color:#452275;
+}
+#resumeGenerate h3 {
+    padding-left: 8px;
+    color:#452275;
+}
+#resumeGenerate span {
+    padding-left:8px;
+}
+
+
+@media (max-width: 584px){
+    .container{
+    max-width: 100%;
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%
+    }
+    form .gender-details .category{      
+        width: 100%;            
+    }
+    form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+        width: 0;
+
+    }
+    form .button button{
+        width: 40%;
+    }
+    form .title::before{
+        width:auto
+    }
+   
+}
+
