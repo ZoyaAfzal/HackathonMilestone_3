@@ -30,7 +30,7 @@ body{
     transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
     animation: fadeIn 1s ease-in-out;
 }
-#resumeForm .title{
+form .title{
     font-size: 22px;
     margin-top: 10px;
     font-weight: 800;
@@ -52,13 +52,13 @@ form .title::before{
     height: 6px;
     width: 40%;
     padding-left:480px;
-    background: linear-gradient(135deg, #45a6e7, #9b59b6);
+    background: linear-gradient(135deg, #45a6e7, #64297b);
 }
 form .title:hover{
-    background: linear-gradient(-135deg, #208dd5, #913cb2);
+    background: linear-gradient(-135deg, #176ba3, #8b2db1);
     background-clip: text;
     color: transparent;
-    -webkit-text-fill-color: linear-gradient(135deg, #71b7e6, #8b2db1) ;
+    -webkit-text-fill-color: linear-gradient(135deg, #71b7e6, #56186e) ;
     font-weight: 1000;
 }
 ::placeholder {
@@ -75,6 +75,18 @@ fieldset {
     box-shadow: 0 10px 20px #812ca3;
     transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
   }
+
+  .user-profile fieldset {
+    border: 2px solid #8e44ad;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #96c8ea, #daa7ed);
+    box-shadow: 0 10px 20px #812ca3;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  }
+ 
+
   fieldset:hover {
     border-color: #502a9d;
     box-shadow: 0 15px 30px #daa7ed;
@@ -128,6 +140,7 @@ form .user-details .input-box{
 }
 
 .user-profile{
+    display: flex;
     height: 30px;
     width: 100%;
     outline: none;
@@ -246,9 +259,11 @@ form .button button:hover{
 }
 #resumeGenerate {
     max-width: 800px;
-    margin: auto;
-    margin-top: 190%;
-    position: absolute;
+    width:800px;
+    margin:auto;
+    margin-top: 188%;
+    height: 120vh;
+    position:absolute;
     padding: 20px;
     border: 3px solid #0992ee;
     border-radius: 8px;
@@ -284,14 +299,23 @@ form .button button:hover{
 
 
 @media (max-width: 584px){
-    .container{
+    body{
+        height:200vh;
+    }
+    form{
     max-width: 100%;
+    }
+    form .user-profile{
+        margin-bottom: 15px;
+        width: 100%
     }
     form .user-details .input-box{
         margin-bottom: 15px;
         width: 100%
     }
     form .gender-details .category{      
+        margin-bottom: 15px;
+        padding: auto;
         width: 100%;            
     }
     form .user-details{
@@ -302,12 +326,181 @@ form .button button:hover{
         width: 0;
 
     }
-    form .button button{
-        width: 40%;
-    }
     form .title::before{
-        width:auto
+        width:auto;
+        height: 2px;
     }
+    form .button button{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        max-width: 100%;
+        padding-bottom:50px;
+        margin-right: 20px;    
+      
+    }
+    form .button{
+        height: 50px;
+        margin: 40px 0;   
+        padding-left:170px;
+      
+      
+       
+    }
+
+    #resumeGenerate {
+        max-width: 100%;
+        width: 90%;
+        margin-top:100px;
+        height:auto;
+        padding: 15px;
+        font-size: 0.9em;
    
 }
+}
 
+@media (max-width: 768px) {
+    body {
+        height: auto;  
+        padding: 20px; 
+    }
+    #resumeForm .title {
+        font-size: 20px;        
+        padding-left: 50px;    
+        margin-bottom: 30px;    
+    }
+    #resumeForm .title::before {
+        width: 50%;  
+        left: 25%;   
+        padding-left: 0;  
+    }
+    fieldset {
+        padding: 15px; 
+        margin-bottom: 15px; 
+    }
+    legend {
+        font-size: 1.3rem; 
+        padding: 4px 8px;  
+    }
+    form .user-details .input-box {
+        width: calc(100% - 20px); 
+    }
+    .user-details .input-box input {
+        height: 40px; 
+        font-size: 15px; 
+        padding-left: 12px; 
+    }
+    .user-profile {
+        height: 35px; 
+        font-size: 1.1rem; 
+        padding-left: 10px; 
+      
+    }
+    form .button button {
+        margin-top: 10px;
+        width: 60%; 
+        font-size: 16px; 
+        height: 40px; 
+        letter-spacing: 0.5px; 
+       
+       
+       
+    }
+    #resumeGenerate {
+        max-width: 94%;
+        width:94%;
+        margin-top: 300%;
+        padding: 15px;
+    }
+
+}
+
+
+
+@media (max-width: 480px) {
+    body {
+        height: auto;  
+        padding: 15px; 
+    }
+    #resumeForm .title {
+        font-size: 18px;      
+        padding-left: 30px;     
+        margin-bottom: 20px;    
+        height: auto;          
+    }
+    #resumeForm .title::before {
+        width: 60%;  
+        left: 20%;   
+    }
+    fieldset {
+        padding: 10px; 
+        margin-bottom: 10px; 
+        border-radius: 10px; 
+    }
+    legend {
+        font-size: 1.1rem; 
+        padding: 3px 6px;  
+        border-radius: 12px; 
+    }
+    form .user-details {
+        flex-direction: column; 
+        width: calc(100% - 20px);
+    }
+
+    form .user-details .input-box {
+        width: 100%; 
+    }
+    .user-details .input-box input {
+        height: 36px; 
+        font-size: 14px; 
+        padding-left: 10px; 
+    }
+    .user-profile {
+        height: 40px; 
+        font-size: 1.1rem; 
+        padding-left: 12px; 
+        padding-bottom: 90px;
+        flex-direction: column; 
+        width: calc(100% - 20px);
+    }
+    .user-profile fieldset {
+        padding: 20px; /
+    }
+    .user-details fieldset {
+        padding: 20px;
+    }
+    form .title::before{
+        width:auto;
+        height: 2px;
+    }
+    form .button button {
+        align-items: center;
+        width: 100%; 
+        font-size: 14px; 
+        height: 45px; 
+        letter-spacing: 0.5px;
+        padding-bottom: 10px;
+        margin-left:80px;
+        padding-top: 10px;
+      
+    }
+    form .button {
+        align-items: center;
+        width:270px;
+        font-size: 10px;
+        height: 10vh; 
+        margin: 40px 0; 
+        padding: 10px;
+        padding-bottom: 20px;
+        margin-top: 10px;
+       
+    }
+    #resumeGenerate {
+        max-width: 91%;
+        margin-top: 430%;
+        padding: 10px;
+        border: 2px solid #0992ee;
+        box-shadow: 0 3px 6px rgba(103, 55, 171, 0.4);
+    }
+
+}
