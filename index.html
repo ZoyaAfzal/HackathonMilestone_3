@@ -15,7 +15,7 @@
             <fieldset>
                 <legend>Profile Picture</legend>
                 <div class="user-profile">
-                    <label for="Profilepicture" class="details">Upload Your Profile Picture:</label>
+                    <label for="profilepicture" class="details">Upload Your Profile Picture:</label>
                     <input type="file" id="profilepicture" name="profilepicture" accept="image/*" required><br/>
                 </div>
             </fieldset>
@@ -23,20 +23,23 @@
                 <legend>Personal Information</legend>
                 <div class="user-details">
                     <div class="input-box">
-                        <label for="Name" class="details">Full Name:</label>
+                        <label for="name" class="details">Full Name:</label>
                         <input type="text" id="name" name="name" placeholder="Enter your fullname" required><br/>
                     </div>
                     <div class="input-box">
-                        <label for="Email" class="details">Email:</label>
-                        <input type="text" id="email" name="email" placeholder="Enter your email" required><br/>
+                        <label for="email" class="details"">Email:</label>
+                        <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                        <span id="emailError" class="error-message"></span>
                     </div>        
                     <div class="input-box">
-                        <label for="Contact" class="details">Contact Number:</label>
-                        <input type="text" id="contactno" name="contact" placeholder="Enter your number" required> <br/>
+                        <label for="contactno" class="details" >Contact Number:</label>
+                        <input type="text" id="contactno"  name="contact" placeholder="Enter your number" required> 
+                        <span id="contactnoError" class="error-message"></span>
                     </div>
                     <div class="input-box">
-                        <label for="Address" class="details">Address :</label>
-                        <input type="text" id="address" name="address" placeholder="Enter your address" required> <br/>
+                        <label for="address" class="details">Address:</label>
+                        <input type="text" id="address"  name="address" placeholder="Enter your address" required> 
+                       
                     </div>
                 </div>
                 </fieldset>
@@ -63,25 +66,88 @@
                         </div>
                     </div>
                 </fieldset>
-            <fieldset>
+            <fieldset id="educationfield">
                 <legend>Education</legend>
                 <div class="input-box">
-                    <label for="Education" class="details">Education:</label>
-                    <textarea id="education" name="education" rows="4" required></textarea><br>
+                    <label for="degree" class="details">Education:</label>
+                    <select id="degree" name="degree">
+                        <option value="bsc">Bachelor of Science in Computer Science</option>
+                        <option value="bba">Bachelor of Business Administration</option>
+                        <option value="b.eng">Bachelor of Engineeriong</option>   
+                        <option value="b.m.s">Bachelor of Management Studies </option>   
+                        <option value="b.com">Bachelor of Commerce</option>    
+                        <option value="b.f.a">Bachelor of Fine Arts</option>
+                        <option value="b.ed">Bachelor of Education</option>
+                        <option value="mbbs">Bachelor of Medicine, Bachelor of Surgery</option>
+                        <option value="b.pharm">Bachelor of Pharmacy </option>
+
+                        <option value="msc">Master of Science in Data Science</option>
+                        <option value="mba">Master of Business Administration</option>
+                        <option value="m.eng">Master of Engineering</option>
+                        <option value="m.f.a">Master of Fine Arts</option>
+                        <option value="m.ed">Master of Education</option>
+                        <option value="m.com">Master of Commerce</option>    
+                        <option value="m.m.s">Master of Management</option> 
+                        <option value="m.pharm">Master of Pharmacy</option> 
+                        <option value="ms">Master of Surgery</option>
+                        <option value="other">others</option>           
+                    </select><br/>
+                </div>
+                 <div class="input-box">
+                     <label for="institution">Institution:</label>
+                     <select id="institution" name="institution" required>
+                         <option value="aku">Aga Khan University</option>
+                         <option value="ned">NED University of Engineering and Technology</option>
+                        <option value="iba">Institute of Business Administration </option>
+                        <option value="ku">University of Karachi</option>
+                        <option value="pnec">Pakistan Navy Engineering College, NUST</option>
+                        <option value="iu">Iqra University</option>
+                        <option value="bu">Bahria University, Karachi Campus</option>
+                        <option value="szabist">Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology </option>
+                        <option value="ivs">Indus Valley School of Art and Architecture</option>
+                      </select><br/>
                     </div>
+                     <div class="input-box">
+                        <label for="start-date">Start Date:</label>
+                         <input type="date" id="start-date" name="start-date" required>
+                        </div>
+                     <div class="input-box">
+                         <label for="end-date">End Date :</label>
+                         <input type="date" id="end-date" name="end-date" required><br/>
+                        </div>
+                      <div class="input-box">
+                          <label for="education">Description:</label>
+                          <textarea id="education" name="education" rows="4" placeholder="Describe your achievements, GPA, or relevant coursework..." required></textarea>
+                        </div>
                 </fieldset>
                 <fieldset>
                     <legend>Experience</legend>
                     <div class="input-box">
-                        <label for="Experience" class="details">Experience:</label>
-                        <textarea id="experience" name="experience" rows="4" required></textarea><br>
+                        <label for="jobTitle">Job Title:</label>
+                        <input type="text" id="jobTitle" name="jobTitle" placeholder="Designation..." required>
+                    </div>
+                    <div class="input-box">
+                        <label for="companyName">Company:</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="e.g., Systems Limited" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="startDate">Start Date:</label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="endDate">End Date:</label>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="responsibilities" class="details">Responsibilities:</label>
+                        <textarea id="responsibilities" name="experience" rows="4" placeholder="Describe your responsibilities and achievements..." required></textarea><br>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Skills</legend>
                     <div class="input-box">
-                        <label for="Skills" class="details">Skills:</label>
-                        <textarea id="skills" name="skills" rows="4" required></textarea><br>
+                        <label for="skills" class="details">Skills:</label>
+                        <textarea id="skills" name="skills" rows="4" placeholder="Enter your skills separated by commas" required></textarea><br>
                     </div>
                      </fieldset>
             <div class="button">
