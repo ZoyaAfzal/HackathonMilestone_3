@@ -1,3 +1,5 @@
+@import url(`https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900display=swap`);
+
 
 *{
     margin: 0;
@@ -9,14 +11,15 @@
 
 body{
     display: flex;
-    height: 300vh;
+    height: 400vh;
     justify-content: center;
     align-items: center;
     padding: 10px;
     background: linear-gradient(135deg, #388cc4, #812ba3);
 }
 #resumeForm{
-    max-width: 800px;
+    max-width: 900px;
+    height:auto;
     margin:auto;
     align-items: center;
     width: 100%;
@@ -50,7 +53,7 @@ form .title::before{
     left: 0;
     bottom: 0;
     height: 6px;
-    width: 40%;
+    width: 46.2%;
     padding-left:480px;
     background: linear-gradient(135deg, #45a6e7, #64297b);
 }
@@ -137,7 +140,7 @@ form .user-details .input-box{
     width: 100%;
     outline: none;
     border-radius: 5px;
-    color: #fff;
+    color: #400296;
     border: 1px solid #ccc;
     padding-left: 15px;
     font-size: 16px;
@@ -158,14 +161,42 @@ form .user-details .input-box{
     margin-bottom:10px;
   
 }
+
+.designation{
+    display: flex;
+    height: 30px;
+    width: 100%;
+    outline: none;
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: 410;
+    margin-bottom:20px;
+  
+}
+.user-profile  input{
+    height: 30px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    color: #400296;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+
+}
 .profilePicture {
-    display: block;
-    margin: 0 auto;
+    width: 120px;
+    height: 150px;
+    margin-top: 10%;
+    padding-top:4px;
+    padding-bottom: 4px;
     border: 2px solid #0e6096;
     box-shadow: 0 4px 8px #9b59b6;
     border-radius: 500%;
-    width: 150px;
-    height: 150px;
+    margin-bottom: 30px;
     object-fit: cover;
 }
 
@@ -174,8 +205,18 @@ form .user-details .input-box{
     border-color: #9b59b6;
 
 }
+
+.user-profile .details input:focus,
+.user-profile .details input:valid{
+    border-color: #9b59b6;
+
+}
+
+.user-profile .details input-box{
+    padding-top:40px;
+}
 form .gender-details {
-    padding-bottom:20px;
+    padding-bottom:10px;
 }
 form .gender-details .gender-title{
     font-size: 20px;
@@ -185,7 +226,9 @@ form .gender-details .category{
     display: flex;
     margin: 14px, 0;
     width: 100%;
+    max-width:250px;
     justify-content: space-between;
+    gap:10.5rem;
 
 }
 .gender-details .category label{
@@ -210,6 +253,12 @@ form .gender-details .category{
     background: #9b59b6;
 
 }
+.input-box .details .icon{
+    display:inline-block;
+    width:30px;
+    font-size:18px;
+    color:#9b59b6;
+ }
 form input[type="radio"]{
     display:none;
 }
@@ -344,7 +393,9 @@ textarea:valid{
     .input-box #jobTitle, #companyName, #startDate, #endDate input{
         font-weight: 12px;
     }
-
+    #language-container {
+    color: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
 
 form .button{
     height: 60px;
@@ -370,49 +421,324 @@ form .button button:hover{
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     
 }
+#profile{
+    width:600px;
+    
+}
+#language-options{
+    display:flex;
+    color:#452275;
+    gap:2.8rem;
+    width:120px;
+   
+}
+#language-options input check-box{
+    fill:#4093a2;
+    background-color: #4093a2;
+}
 #resumeGenerate {
-    max-width: 800px;
-    width:800px;
+    max-width: 1000px;
+    width:900px;
     margin:auto;
-    margin-top: 280%;
-    height: 180vh;
+    margin-top: 390.8%;
+    height: 184vh;
     position:absolute;
     padding: 20px;
     border: 3px solid #0992ee;
     border-radius: 8px;
     background-color: linear-gradient(135deg, #71b7e6 #a369ba); 
     box-shadow: 0 4px 8px 6, #6737ab;
+   
 
+} 
+#resumeGenerte *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+ 
+ }
+ 
+.container{
+    position:absolute;
+    width:100%;
+    max-width:900px;
+    min-height:1000px;
+    margin:auto;
+    margin-bottom: 14px;
+    right:0.06%;
+    top:0.4%;
+    background:#fff;
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: 0 35px 35px rgba(0,0,0,0.1);
+ }
+ 
+ .container .left-section{
+    position:relative;
+    background-color:#388cc4;
+    padding:40px;
+ }
+
+ .profile-text{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(160, 220, 227);
+ }
+ 
+ .profile-text .img-box{
+    position:relative;
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border:none;
+ }
+ 
+ .profile-text .img-box img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+ 
+ }
+ .about.interest title2{
+    padding-bottom:0;
+ }
+ .profile-text h2{
+    color:#fff;
+    font-size:1.5em;
+    margin-top:16px;
+    text-transform:uppercase;
+    text-align:center;
+    font-weight:600;
+    line-height:1.4em;
+ }
+
+ .profile-text h2 span{
+    font-size:0.8em;
+    font-weight:300;
+ }
+
+ .contact-info{
+    padding-top:30px;
+ }
+ 
+ .title{
+    color:#fff;
+    text-transform:uppercase;
+    font-weight:600;
+    letter-spacing:1px;
+    margin-bottom:20px;
+ }
+ .skills  .title{
+    padding-bottom:0;
+ }
+
+ .details #skills{
+    width:100%;
+    max-width:200px;
+}
+
+.details .language-options{
+    gap:1.5rem;
+    width:200px;
+}
+ .contact-info.language .title{
+    padding-top:0;
+ }
+ 
+.contact-info ul li{
+   position:relative;
+   list-style:none;
+   margin: 0;
+   padding:0;
+   cursor:pointer;
+}
+.contact-info .user-details{
+    margin-bottom:6px;
+}
+
+.contact-info ul li .Info{
+   color:#23545d;
+}
+
+.contact-info.language{
+    margin-bottom:10px;
+    padding:0;
 }
 
 
-#resumeGenerate h2 {
-    text-align: center;
-    padding-left:auto;
-    background: linear-gradient(to right, #1488d6, #6908a0);
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: linear-gradient(135deg, #096aab, #731498) ;
+.skills .box span, .contact-info.language span {
+    display: block; /* Ensures consistent spacing for lists */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+}
+
+.contact-info {
+    margin-bottom: 16px; /* Reset any margin around the contact info section */
+    padding: 0; /* Reset padding */
+}
+
+.contact-info .title {
+    margin:10px; /* Remove default margin on the h3 title */
+    padding-top:10px; /* Add a small space below the title if needed */
+}
+.skills .title{
+    margin-top:10px;
+    padding-bottom:0;
+}
+.contact-info ul {
+    margin: 0; /* Reset default margin on the ul */
+    padding: 0; /* Reset padding on the ul */
+    list-style-type: none; /* Remove bullet points from the list */
+}
+
+.contact-info li {
+    margin: 5px 0; /* Control the vertical spacing between list items */
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+}
+
+.contact-info .icon {
+    margin-right: 10px; /* Add space between icon and text */
+}
+
+.contact-info .text {
+    margin: 0; /* Ensure text has no extra margin */
+}
+
+.contact-info.education,
+.about {
+    margin: 0; /* Reset any default margins */
+    padding: 0; /* Reset padding */
+}
+
+.contact-info.education {
+    margin-top: 20px; /* Add space above the Education section */
+    padding:0;
+}
+
+.title2 {
+    margin: 0; /* Remove any default margin on title */
+    padding-bottom: 10px; /* Optional: Add a small gap below the heading */
+}
+
+.education span,
+.about span {
+    margin: 0; /* Remove default margin for span wrapping content */
+    display: block; /* Ensure elements within span are displayed in block format */
+}
+
+.box {
+    padding: 15px; /* Add padding inside the box */
+    margin-bottom: 20px; /* Space between Education and Experience sections */
+}
+
+/* Control spacing for list items */
+.contact-info li,
+.about li {
+    margin: 5px 0; /* Adjust the vertical spacing for list items */
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px; /* Add a small gap between the icon and text */
+}
+
+
+.contact-info ul li .icon{
+   display:inline-block;
+   width:30px;
+   font-size:18px;
+   color:rgb(17, 66, 75);
+}
+.contact-info ul li span{
+   color:#d6f7fb;
+   font-weight:300;
+}
+.contact-info ul li span a{
+   color:#a0e6f8;
    
 }
+ 
+ 
 
-#resumeGenerate p strong{
-    color:#452275;
-    
-}
-#resumeGenerate h3 {
-    padding-left: 8px;
-    color:#076fb4;
-}
-#resumeGenerate h4 {
-    margin-top:30px;
-    padding-left: 8px;
-    color:#076fb4;
-}
-#resumeGenerate span {
-    padding-left:8px;
-}
+ .about .box .year-company{
+    min-width:150px;
+ 
+ }
+ .about .box .year-company h5{
+    text-transform:uppercase;
+    color:#4093a2;
+    font-weight:600;
+ }
+ 
+ .about .box .text h4{
+   text-transform:uppercase;
+   color:#57c6da;
+   font-size: 16;
+ }
+ 
 
+.skills .box{
+    position:relative;
+    width:100%;
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    justify-content:center;
+    align-items:center;
+ }
+ 
+ .skills .box h4{
+    text-transform: uppercase;
+    color:#6c7d80;
+    font-weight:500;
+ }
+
+
+
+
+ .container .right-section{
+    position:relative;
+    background:#fff;
+    padding:40px;
+ }
+
+ 
+.about{
+    margin-bottom:50px;
+ 
+ }
+ 
+ .about:last-child{
+    margin-bottom: 0;
+ }
+ 
+ .title2{
+   color:#285e67;
+   text-transform:uppercase;
+   letter-spacing:1px;
+   margin-bottom:10px;
+ 
+ }
+ 
+  p{
+ color:#6c7d80;
+ }
+ 
+ .about .box{
+    display:flex;
+    flex-direction:row;
+    margin:20px 0;
+ 
+ }
 
 @media (max-width: 584px){
     body{
@@ -420,16 +746,25 @@ form .button button:hover{
     }
     form{
     max-width: 100%;
+    top:0;
     }
+    .title{
+        font-size: 10px;
+        margin-top:4px;
+        margin-bottom: 4px;
+    }
+    
     form .user-profile{
         margin-bottom: 40px;
         width: 100%
     }
+   
     form .user-details .input-box{
         margin-bottom: 5px;
         width: 100%
     }
-    form .gender-details .category{      
+    form .gender-details .category{     
+        gap:2.5rem; 
         margin-bottom: 15px;
         padding: auto;
         width: 100%;            
@@ -459,18 +794,19 @@ form .button button:hover{
     form .button{
         height: 50px;
         margin: 40px 0;   
-        padding-left:145px;         
+        padding-left:145px;    
+          
        
     }
    
     #resumeGenerate {
-        width: 70%;
+        width: 60%;
         height: auto;
         padding: 10px;
         box-shadow: 0 2px 4px rgba(103, 55, 171, 0.5);
         position: absolute;
-        top: 45%; 
-        left: 50%; 
+        margin-top:394%;
+        top: 85%;  
         transform: translateX(-50%); 
       
     }
@@ -482,6 +818,11 @@ form .button button:hover{
         height: auto;  
         padding: 20px; 
     }
+    .input-box #profile{
+      width:800px;
+      max-width:100%;
+        
+    }
     #resumeForm .title {
         font-size: 20px;        
         padding-left: 50px;    
@@ -492,6 +833,14 @@ form .button button:hover{
         left: 25%;   
         padding-left: 0;  
     }
+    form .gender-details .category{ 
+        width:100%;    
+        gap:.5rem; 
+        margin-bottom: 15px;
+        padding: auto;
+                  
+    }
+
     fieldset {
         padding: 15px; 
         margin-bottom: 15px; 
@@ -515,6 +864,12 @@ form .button button:hover{
         font-weight: 12px;
     }
 
+    .details #language-options{
+        width:100px;
+    }
+    .details #skills{
+        max-width:80px;
+    }
 
     .user-details .input-box input {
         height: 40px; 
@@ -526,22 +881,26 @@ form .button button:hover{
         height: 35px; 
         font-size: 1.1rem; 
         padding-left: 10px; 
+        right:10px;
       
     }
     form .button button {
-        margin-top: 10px;
         width: 60%; 
-        font-size: 16px; 
-        height: 40px; 
-        letter-spacing: 0.5px;      
+        font-size: 18px; 
+        height: 50px; 
+        letter-spacing: 0.5px;    
+        margin-top:10px;
+        margin-bottom:40px;
+       
+         
        
     }
     #resumeGenerate {
         max-width: 94%;
+        height: auto;
         width:94%;
         padding: 15px;
         position: absolute;
-        top: 11%; 
         left: 50%; 
         transform: translateX(-50%); 
       
@@ -578,8 +937,8 @@ form .button button:hover{
 
     #educationfield {
         padding: 10px;
-        width: 60%; 
-        max-width: 60%;
+        width: 100%; 
+        max-width: 100%;
         margin: 0 auto 10px auto; 
         border-radius: 10px;
         overflow: hidden; 
@@ -625,15 +984,16 @@ form .button button:hover{
         height: 2px;
     }
     form .button button {
+        display:flex;
         align-items: center;
         width: 100%; 
         font-size: 14px; 
         height: 45px; 
         letter-spacing: 0.5px;
-        padding-bottom: 10px;
-        margin-left:40px;
-        padding-top: 10px;
-        margin-right: 80px;
+        padding-bottom: 20px;
+        margin-left:82px;
+        padding-top: 20px;
+        margin-right: 100px;
       
     }
     form .button {
@@ -643,8 +1003,8 @@ form .button button:hover{
         height: 10vh; 
         margin: 40px 0; 
         padding: 10px;
-        padding-bottom: 20px;
-        margin-top: 10px;
+        margin-top: 30px;
+        right:40%;
        
     }
     #resumeGenerate {
@@ -653,7 +1013,7 @@ form .button button:hover{
         padding: 10px;
         box-shadow: 0 2px 4px rgba(103, 55, 171, 0.5);
         position: absolute;
-        top: 85%; 
+        top: 45%; 
         left: 50%; 
         transform: translateX(-50%); 
       
@@ -665,36 +1025,88 @@ form .button button:hover{
         max-width:100%;
         height: 20px; 
         font-size: 1.1rem; 
-        padding-bottom: 90px;
+        padding-bottom: 70px;
         flex-direction: column; 
-        width: calc(100% - 20px);      
+        width: calc(100% - 20px);  
+        padding-top: 10px;    
        
     }
     .user-profile fieldset {
         width:100%;
         width: calc(100% - 20px); 
        
-
     }
-    form .button {
-        height: 50px;            
-        margin: 20px 0;        
-        text-align: center; 
+    .user-profile input{
+        padding-top: 10px;
+    }
+     
+    form .gender-details .category{     
+        gap:4px;
+        margin-bottom: 15px;
+        padding: auto;
+        width: 100%;            
+    }
+
+     form.button {
+        align-items: center;
+        width:240px;
+        font-size: 10px;
+        height: 10vh; 
+        margin: 40px 0; 
+        padding: 10px;
+        margin-top: 30px;
+      
+       
     }
 
     form .button button {
-        width: 100%;              
-        font-size: 16px;         
-        padding: 10px 0;         
+        display:flex;
+        align-items: center;
+        width: 100%; 
+        font-size: 14px; 
+        height: 55px; 
+        letter-spacing: 0.5px;
+        padding-bottom: 20px;
+        margin-left:20px;
+        padding-top: 20px; 
+        
     }
 
 
     #resumeGenerate {
         max-width: 90%;
-        margin-top:430%;
+        margin-top:514%;
         height:auto;
         padding: 10px;
         border: 2px solid #0992ee;
         box-shadow: 0 3px 6px rgba(103, 55, 171, 0.4);
     }
 }
+@media(max-width:1000px){
+    .container{
+       margin:10px;
+       grid-template-columns: repeat(1, 1fr);
+    }
+ 
+    .interest ul{
+       grid-template-columns: repeat(2, 1fr);
+    }
+ }
+ 
+ @media(max-width:600px){
+    .about .box{
+       flex-direction:column;
+    }
+ 
+    .about .box .year-company{
+       margin-bottom: 5px;
+    }
+ 
+    .interest ul{
+       grid-template-columns: repeat(1, 1fr);
+    }
+ 
+    .skills .box{
+       grid-template-columns: repeat(1, 1fr);
+    }
+ }

@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactnoElement = document.getElementById('contactno') as HTMLInputElement;
     const emailErrorElement = document.getElementById('emailError') as HTMLSpanElement;
     const contactnoErrorElement = document.getElementById('contactnoError') as HTMLSpanElement;
-
+    const languageOptions = document.querySelectorAll<HTMLInputElement>('input[name="languages"]');
+    const selectedLanguagesContainer = document.getElementById('selected-languages');
+    
     // Add event listeners for real-time validation
       emailElement?.addEventListener('input', () => {
         const isValid = isValidEmail(emailElement.value);
@@ -21,17 +23,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }); 
 
 
+
+    function updateSelectedLanguages() {
+        selectedLanguagesContainer!.innerHTML = '';
+        const languageList = document.createElement('ul');
+        languageOptions.forEach((checkbox) => {
+            if (checkbox.checked) {
+                const languageItem = document.createElement('li');
+                languageItem.textContent = checkbox.value;
+                languageList.appendChild(languageItem);
+            }
+        });
+        selectedLanguagesContainer?.appendChild(languageList
+
+        );
+    }
+
+    languageOptions.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateSelectedLanguages);
+    });
+
+
 //listing elements
 document.getElementById('resumeForm')?.addEventListener('submit', function(event)  {
     event.preventDefault();
     
 //type assertions
 const profilePicture = document.getElementById('profilepicture') as HTMLInputElement;
+const roleElement = document.getElementById('designation') as HTMLInputElement;
 const nameElement = document.getElementById('name') as HTMLInputElement;
-//const emailElement = document.getElementById('email') as HTMLInputElement;
-//const contactnoElement = document.getElementById('contactno') as HTMLInputElement;
+const profileElement = document.getElementById('profile') as HTMLTextAreaElement;
+const linkElement = document.getElementById('link') as HTMLInputElement;
 const addressElement = document.getElementById('address') as HTMLInputElement;
 const genderRadios = document.getElementsByName('gender') as NodeListOf<HTMLInputElement>;
+const skillsElement = document.getElementById('skills') as HTMLTextAreaElement;
+const interestsElement = document.getElementById('interests') as HTMLTextAreaElement;
+
 const degreeSelect = document.getElementById('degree') as HTMLSelectElement;
 const institutionSelect = document.getElementById('institution') as HTMLSelectElement;
 const startDateInput = document.getElementById('start-date') as HTMLInputElement;
@@ -44,12 +71,14 @@ const startDateElement = document.getElementById('startDate') as HTMLInputElemen
 const endDateElement = document.getElementById('endDate') as HTMLInputElement;
 const responsibilitiesElement = document.getElementById('responsibilities') as HTMLTextAreaElement;
 
-const skillsElement = document.getElementById('skills') as HTMLTextAreaElement;
 
 
-if( profilePicture && nameElement && emailElement && contactnoElement && addressElement && genderRadios && degreeSelect && institutionSelect && startDateInput && endDateInput && descriptionTextarea && jobTitleElement && companyNameElement && startDateElement && endDateElement && responsibilitiesElement && skillsElement){
+
+if( profilePicture && roleElement && nameElement && profileElement && emailElement && contactnoElement && languageOptions && selectedLanguagesContainer && linkElement  && addressElement && genderRadios && skillsElement && interestsElement && degreeSelect && institutionSelect && startDateInput && endDateInput && descriptionTextarea && jobTitleElement && companyNameElement && startDateElement && endDateElement && responsibilitiesElement ){
+    const role = roleElement.value;
     const name = nameElement.value;
     const email = emailElement.value;
+    const profile= profileElement.value;
     const contactno = contactnoElement.value;
     if (!isValidEmail(email)) {
         alert("Please enter a valid email address."); // Display error message
@@ -59,7 +88,37 @@ if( profilePicture && nameElement && emailElement && contactnoElement && address
         alert("Please enter a valid contact number."); // Display error message
         return; // Prevent form submission
     }
+    const linkedinUrl = linkElement?.value || '';
     const address= addressElement.value;
+    const skills = skillsElement.value;
+
+    const skillItems = skills.split(',').map(skill => skill.trim()).filter(skill => skill.length > 0);
+const skillsList = `
+    <section id="skills">
+        <ul>
+            ${skillItems.map(skill => `<li>${skill}</li>`).join('')}
+        </ul>
+    </section>
+`;  
+const interests = interestsElement.value;
+const interestsItems = interests.split(',').map(interest => interest.trim()).filter(interest => interest.length > 0);
+const interestsList = `
+    <section id="interests">
+        <ul>
+            ${interestsItems.map(interest => `<li>${interests}</li>`).join('')}
+        </ul>
+    </section>`
+const languagesList = `
+       <section id="languages">
+        <ul>
+            ${Array.prototype.slice.call(languageOptions)  // Convert NodeList to Array
+                .filter((option) => option.checked)
+                .map((option) => `<li>${option.value}</li>`)
+                .join('')}
+        </ul>
+    </section>
+`;
+
     const degree = degreeSelect.value;
     const institution = institutionSelect.value;
     const startDate = startDateInput.value;
@@ -70,7 +129,24 @@ if( profilePicture && nameElement && emailElement && contactnoElement && address
     const startedDate = startDateElement.value;
     const endedDate = endDateElement.value;
     const responsibilities = responsibilitiesElement.value;
-    const skills = skillsElement.value;
+   
+    function updateSelectedLanguages() {
+        selectedLanguagesContainer!.innerHTML = '';
+
+        languageOptions.forEach((checkbox) => {
+            if (checkbox.checked) {
+                // Create a new HTML element for each selected language
+                const languageElement = document.createElement('p');
+                languageElement.textContent = checkbox.value;
+                selectedLanguagesContainer?.appendChild(languageElement);
+            }
+        });
+    }
+    
+    // Add event listeners to each checkbox
+    languageOptions.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateSelectedLanguages);
+    });
 
 //profilePicture Element
 const profilePictureFile = profilePicture.files?.[0];
@@ -94,27 +170,82 @@ experienceEntries.push(experienceEntry);
 
 //create resume generate
 const resumeGenerate = `
-<h2>My Resume</h2>
+<div class="container">
+<div class="left-section">
+<div class="profile-text">
+<div class="img-box">
 ${profilePictureUrl ? `<img src="${profilePictureUrl}" alt="ProfilePicture" class="profilePicture"/>` : ""
 }
-<h3>Personal Information: </h3>
-<p><strong>Name: </strong> ${name}</p>
-<p><strong>Email: </strong> ${email}</p>
-<p><strong>Contact Number: </strong> ${contactno}</p>
-<p><strong>Address: </strong> ${address}</p>
-<p><strong>Gender: </strong> ${selectedGender ? selectedGender : 'None selected'}</p>
+</div>
+ <h2>${name}<br><span>${role}</span></h2>
+</div>
+<div class="contact-info">   
+<h3 class="title">Contact Info</h3>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span class="text">${contactno}</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    <span class="text">${email}</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-male" aria-hidden="true"></i></span>
+                    <span class="text">${selectedGender ? selectedGender : 'None selected'}</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-linkedin-square" aria-hidden="true"></i></span>
+                    <span class="url" class="Info"> ${linkedinUrl ? `<a href="${linkedinUrl}" target="_blank">${linkedinUrl}</a>` : 'Not provided'}</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span class="text">${address}</span>
+                </li>
+            </ul>
+      </div>
+ 
+ <div class="skills">
+<h3 class="title">Professional Skills</h3>
+<div class="box">
+<span>${skillsList}</span>
+</div>
+</div>
+<div class="contact-info language">
+<h3 class="title">Languages</h3>         
+<span>${languagesList}</span>
+</div>
+</div>
 
 
-<h4>Education: </h4>
+<div class="right-section">
+<div class="about">
+<h2 class="title2">Profile</h2> 
+<p>${profile}</p>             
+<div class="contact-info education"> 
+<h3 class="title2">Education</h3>
 <span>${educationEntries.map(entry => entry.outerHTML).join('')}</span>
-
-
-<h3>Experience: </h3>
+</div>
+</div>
+ <div class="about">
+<div class="contact-info education">
+<h3 class="title2">Experience</h3>
 <span>${experienceEntries.map(entry => entry.outerHTML).join('') }</span>
-
-<h3>Skills: </h3>
-<span>${skills.split(',').map(skill => skill.trim()).join(', ') }</span>
-
+</div>
+</div>
+ <div class="about interest">
+<h3 class="title2">Interests</h3>
+<span>${interestsList}</span>
+</div>
+</div>
 
 `;
 
