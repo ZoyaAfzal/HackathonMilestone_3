@@ -441,12 +441,12 @@ form .button button:hover{
     max-width: 1000px;
     width:900px;
     margin:auto;
-    margin-top: 360.8%;
+    margin-top: 410.8%;
     height: 184vh;
     position:absolute;
     padding: 20px;
-   /* border: 3px solid #0992ee;
-    border-radius: 8px;*/
+    border: 3px solid #0992ee;
+    border-radius: 8px;
     background-color: linear-gradient(135deg, #71b7e6 #a369ba); 
     box-shadow: 0 4px 8px 6, #6737ab;
    
@@ -466,7 +466,7 @@ form .button button:hover{
     max-width:900px;
     min-height:1000px;
     margin:auto;
-    margin-bottom: 14px;
+    margin-bottom: 15px;
     right:0.06%;
     top:0.4%;
     background:#fff;
@@ -1193,7 +1193,7 @@ form .button button:hover{
         margin-top: 40.8%;
         height: 184vh;
         position:absolute;
-        margin-top:680%;
+        margin-top:700%;
         height:auto;
         padding: 10px;
         border: 2px solid #2486bc; 
